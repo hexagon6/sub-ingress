@@ -4,6 +4,7 @@
   "description": "a simple http-ingress reverse proxy - easily configurable for subdomains",
   "main": "index.mjs",
   "type": "module",
+  "bin": { "sub-ingress": "./index.mjs" },
   "scripts": {
     "dev": "npx nodemon -w . index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
