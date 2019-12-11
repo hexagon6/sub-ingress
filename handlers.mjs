@@ -2,7 +2,7 @@ import { URL } from 'url'
 
 import send from '@polka/send-type'
 import axios from 'axios'
-import R from 'ramda'
+import { zip, modulo, __ } from './node_modules/ramda/src/index.mjs'
 
 import logger from './logger.mjs'
 
@@ -27,10 +27,10 @@ export const assignTargetDomain = domainList => {
 }
 
 // transform a list of headers into headers object to keep exact case of header names. (since res.headers converts to lowercase names)
-const isOdd = R.modulo(R.__, 2)
+const isOdd = modulo(__, 2)
 const transformHeaders = rawHeaders =>
   Object.fromEntries(
-    R.zip(
+    zip(
       rawHeaders.filter((_, i) => !isOdd(i)),
       rawHeaders.filter((_, i) => isOdd(i))
     )
