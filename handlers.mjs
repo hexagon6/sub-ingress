@@ -2,8 +2,8 @@ import { URL } from 'url'
 
 import send from '@polka/send-type'
 import axios from 'axios'
-import { zip, modulo, __ } from './node_modules/ramda/src/index.mjs'
 
+import { __, modulo, zip } from './node_modules/ramda/src/index.mjs'
 import logger from './logger.mjs'
 
 const logTD = logger('🥔')
