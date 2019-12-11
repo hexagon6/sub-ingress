@@ -1,5 +1,9 @@
 import fs from 'fs'
+import { fileURLToPath } from 'url'
+import { default as path, dirname } from 'path'
 
-const logo = fs.readFileSync('logo.ascii', { encoding: 'utf8' })
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const logo = fs.readFileSync(path.join(__dirname, './logo.ascii'), { encoding: 'utf8' })
 
 export default logo
