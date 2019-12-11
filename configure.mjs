@@ -25,7 +25,7 @@ const validateConfig = () => {
   const domains = walkConfigDir();
   let config;
   if (Array.isArray(domains)) {
-    config = domains.map(loadConfig).reduce((a, c) => ({ ...a, ...c }));
+    config = domains && domains.length > 0 ? domains.map(loadConfig).reduce((a, c) => ({ ...a, ...c })) : {};
   }
   logC("🔎")("found following domains:", domains);
   logC("🍌")("validating entries from: ", config);
