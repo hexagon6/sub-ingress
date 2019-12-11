@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "npx nodemon -w . index.mjs",
     "lint": "eslint . --ext .js,.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "husky": {
     "hooks": {
@@ -49,7 +49,9 @@
   },
   "devDependencies": {
     "@linguala/eslint-config": "^0.3.1",
+    "ava": "^2.4.0",
     "husky": "^3.1.0",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "supertest": "^4.0.2"
   }
 }
