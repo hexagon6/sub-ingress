@@ -1,0 +1,23 @@
+{
+  "name": "sub-ingress",
+  "version": "0.0.1",
+  "description": "a simple http-ingress reverse proxy - easily configurable for subdomains",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "dev": "npx nodemon -w . index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">= 13.2"
+  },
+  "author": "hexagon6 <npm@fet.li>",
+  "license": "ISC",
+  "dependencies": {
+    "@polka/send-type": "^0.5.2",
+    "axios": "^0.19.0",
+    "js-yaml": "^3.13.1",
+    "polka": "^0.5.2",
+    "ramda": "^0.26.1"
+  }
+}

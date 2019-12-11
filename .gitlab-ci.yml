@@ -1,0 +1,5 @@
+image: node:13.2
+
+test_build:
+  script:
+    - npm ci
