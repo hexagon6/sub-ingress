@@ -15,6 +15,10 @@
     "node": ">= 13.2"
   },
   "author": "hexagon6 <npm@fet.li>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hexagon6/sub-ingress"
+  },
   "license": "ISC",
   "dependencies": {
     "@polka/send-type": "^0.5.2",
