@@ -9,7 +9,27 @@
   },
   "scripts": {
     "dev": "npx nodemon -w . index.mjs",
+    "lint": "eslint . --ext .js,.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "npm run lint && npm test"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "@linguala/eslint-config"
+    ],
+    "rules": {
+      "no-console": 1
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "engines": {
     "node": ">= 13.2"
