@@ -26,5 +26,10 @@
     "js-yaml": "^3.13.1",
     "polka": "^0.5.2",
     "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "@linguala/eslint-config": "^0.3.1",
+    "husky": "^3.1.0",
+    "pretty-quick": "^2.0.1"
   }
 }
