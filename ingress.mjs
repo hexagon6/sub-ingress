@@ -1,16 +1,11 @@
 import polka from 'polka'
 
-import configure from './configure.mjs'
 import { assignTargetDomain, reverseProxy } from './handlers.mjs'
 
-const PORT = process.env.PORT || 3000
-
-const domainList = configure()
-
 //  GET  HEAD  PATCH  OPTIONS  CONNECT  DELETE  TRACE  POST  PUT
-const start = () =>
+const start = (domainConfig, { port }) =>
   polka()
-    .use(assignTargetDomain(domainList))
+    .use(assignTargetDomain(domainConfig))
     .get('/*', reverseProxy)
     .head('/*', reverseProxy)
     .patch('/*', reverseProxy)
@@ -20,10 +15,10 @@ const start = () =>
     .trace('/*', reverseProxy)
     .post('/*', reverseProxy)
     .put('/*', reverseProxy)
-    .listen(PORT, err => {
+    .listen(port, err => {
       if (err) throw err
-      console.log(`> 🏃‍: Running on localhost:${PORT}`)
-      console.log('ingress is starting with config: ', domainList)
+      console.log(`> 🏃‍: Running on ${port}`)
+      console.log('ingress is starting with config: ', domainConfig)
     })
 
 export default start

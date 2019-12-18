@@ -40,13 +40,12 @@ const loadConfig = domainName => {
 }
 
 const logC = logger('🐒')
-const validateConfig = () => {
-  const domains = walkConfigDir()
+const validateConfig = (config = []) => {
+  const domains = config || walkConfigDir()
   if (domains.length === 0) {
     help()
     process.exit(1)
   }
-  let config
   if (Array.isArray(domains)) {
     config =
       domains && domains.length > 0
