@@ -1,5 +1,6 @@
-import test from 'ava'
 import net from 'net'
+
+import test from 'ava'
 
 import ingress from '../ingress.mjs'
 
