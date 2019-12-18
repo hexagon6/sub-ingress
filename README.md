@@ -1,6 +1,7 @@
 # http-ingress
 
 ## Purpose
+
 This software package can run a simple http-based ingress server, configurable with a yaml-file.
 
 It should map incoming HTTP requests like a reverse proxy.
@@ -11,17 +12,18 @@ We have a configuration file
 
 like this
 
-config/mydomain.com.yml
+config/example.com.yml
+
 ```yaml
-sub1: "10.0.0.2:2444"
-sub2: "10.0.0.2:2445"
+www: '10.0.0.2:2444'
+www2: '10.0.0.2:2445'
 ```
 
 which should forward HTTP requests to the defined endpoint
 
 ```network
-HTTP -> `sub1.mydomain.com` -> `10.0.0.2:2444`
-HTTP -> `sub2.mydomain.com` -> `10.0.0.2:2445`
+HTTP -> `www.example.com` -> `10.0.0.2:2444`
+HTTP -> `www2.example.com` -> `10.0.0.2:2445`
 ```
 
-* [ ] Setup tests (ava & supertest)
+- [ ] Setup tests (ava & supertest)

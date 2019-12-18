@@ -5,6 +5,24 @@ import yaml from 'js-yaml'
 
 import logger from './logger.mjs'
 
+const help = () => {
+  const helpmsg = `
+no config has been found.
+
+You need to add a configuration file in config/ with your domain name and .yml file ending
+e.g. 'config/example.com.yml'
+
+\`\`\`yml
+www: "10.0.0.2:2444"
+www2: "10.0.0.2:2445"
+\`\`\`
+
+which will forward http-traffic to 2 backends via
+- www.example.com -> 10.0.0.2:2444
+- www2.example.com -> 10.0.0.2:2445
+`
+  console.log(helpmsg)
+}
 // validate by parsing with WHATWG URL parser, should throw if not ok, TODO: test throwing
 const validatedomainName = name => new URL(`http://${name}`).host
 
@@ -24,6 +42,10 @@ const loadConfig = domainName => {
 const logC = logger('🐒')
 const validateConfig = () => {
   const domains = walkConfigDir()
+  if (domains.length === 0) {
+    help()
+    process.exit(1)
+  }
   let config
   if (Array.isArray(domains)) {
     config =
