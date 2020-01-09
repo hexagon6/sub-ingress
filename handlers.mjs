@@ -43,7 +43,7 @@ export const reverseProxy = (req, res) => {
   const { domain, target, method, originalUrl } = req
   logRP('📨')(`received request [${method}] on ${originalUrl}`)
   if (target) {
-    let body = []
+    const body = []
     req.on('data', chunk => {
       body.push(chunk)
     })
