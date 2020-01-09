@@ -36,7 +36,7 @@ const loadConfig = domainName => {
   const data = yaml.safeLoad(
     fs.readFileSync(`./config/${domainName}.yml`, 'utf8')
   )
-  return { [domainName]: data }
+  return { [domainName.toLowerCase()]: data }
 }
 
 const logC = logger('🐒')
@@ -61,9 +61,10 @@ const validateConfig = (config = []) => {
     .map(([domain, subdomains]) =>
       Object.entries(subdomains)
         .map(([sub, tuple]) => ({ sub, tuple }))
-        .map(({ sub, tuple }) =>
-          validatedomainName(sub) ? { sub, tuple } : null
-        )
+        .map(({ sub, tuple }) => {
+          const subDomain = validatedomainName(sub)
+          return subDomain ? { sub: subDomain, tuple } : null
+        })
         .filter(i => i)
         .map(({ sub, tuple }) => ({ [`${sub}.${domain}`]: tuple }))
         .reduce((a, c) => ({ ...a, ...c }), {})
