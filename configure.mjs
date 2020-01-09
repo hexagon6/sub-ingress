@@ -41,7 +41,7 @@ const loadConfig = domainName => {
 
 const logC = logger('🐒')
 const validateConfig = (config = []) => {
-  const domains = config || walkConfigDir()
+  const domains = config && config.length > 0 ? config : walkConfigDir()
   if (domains.length === 0) {
     help()
     process.exit(1)
