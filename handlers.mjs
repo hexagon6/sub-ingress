@@ -53,6 +53,7 @@ export const reverseProxy = (req, res) => {
       logRP('➡️')(`redirecting "${domain}" -> (${target})`)
       logRP('🎯')(`redirect to ${newUrl} with method: [${method}]`)
       axios({
+        maxRedirects: 0,
         method,
         headers: req.headers,
         url: newUrl,
@@ -84,6 +85,14 @@ export const reverseProxy = (req, res) => {
             logRP('🤭')(
               `backend responded with [${error.response.status}], I give it back to frontend`
             )
+            if (
+              error.response.status === 301 ||
+              error.response.status === 302
+            ) {
+              res.statusCode = error.response.status
+              res.writeHead(error.response.status, error.response.headers)
+              res.end(error.response.data)
+            }
             res.statusCode = error.response.status
             res.end(error.response.data)
           } else {
