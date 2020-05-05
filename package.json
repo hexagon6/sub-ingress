@@ -7,6 +7,9 @@
   "bin": {
     "sub-ingress": "./index.mjs"
   },
+  "files": [
+    "*.mjs"
+  ],
   "scripts": {
     "dev": "npx nodemon -w . index.mjs",
     "lint": "eslint . --ext .js,.mjs",
