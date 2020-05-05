@@ -1,6 +1,6 @@
 {
   "name": "sub-ingress",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a simple http-ingress reverse proxy - easily configurable for subdomains",
   "main": "index.mjs",
   "type": "module",
