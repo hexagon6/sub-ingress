@@ -50,13 +50,13 @@
   "license": "ISC",
   "dependencies": {
     "@polka/send-type": "^0.5.2",
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "js-yaml": "^3.13.1",
     "polka": "^0.5.2",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
-    "@linguala/eslint-config": "^0.3.1",
+    "@linguala/eslint-config": "^0.3.2",
     "ava": "^2.4.0",
     "esm": "^3.2.25",
     "husky": "^3.1.0",
